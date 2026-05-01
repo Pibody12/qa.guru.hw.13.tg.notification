@@ -16,7 +16,7 @@ public class PropertiesTests {
     void testNameProperties() {
         String environment = System.getProperty("name");
 
-        System.out.println("My is: "  + environment);
+        System.out.println("My name is: "  + environment);
     }
 
     @Test
