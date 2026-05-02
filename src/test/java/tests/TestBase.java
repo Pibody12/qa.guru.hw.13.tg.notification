@@ -30,12 +30,14 @@ public class TestBase {
     String randomCity = selectCity(randomState);
     String randomHobbies = selectHobbies();
 
+    static String browser = System.getProperty("browser", "chrome");
+
     @BeforeAll
     static void setupSelenideConfig() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-//        Configuration.browser = "chrome";
+        Configuration.browser = browser;
 //        Configuration.browserVersion = "128.0";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

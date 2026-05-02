@@ -2,7 +2,6 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLOutput;
 
 public class PropertiesTests {
 
