@@ -30,21 +30,14 @@ public class TestBase {
     String randomCity = selectCity(randomState);
     String randomHobbies = selectHobbies();
 
-    static String browser = System.getProperty("browser", "chrome");
-    static String browserVersion = System.getProperty("browserVersion", "128.0");
-    static String browserSize = System.getProperty("browserSize", "1920x1080");
-    static String baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
-    static String userSelenoid = System.getProperty("userSelenoid");
-    static String urlSelenoid = System.getProperty("urlSelenoid", "selenoid.autotests.cloud/wd/hub");
-    static String urlVideo = System.getProperty("urlVideo", "selenoid.autotests.cloud/video/");
     static Boolean enableRecordVideo = Boolean.parseBoolean(System.getProperty("enableRecordVideo", "true"));
 
     @BeforeAll
     static void setupSelenideConfig() {
-        Configuration.browser = browser;
-        Configuration.browserVersion = browserVersion;
-        Configuration.browserSize = browserSize;
-        Configuration.baseUrl = baseUrl;
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "128.0");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
         Configuration.pageLoadStrategy = "eager";
 
 
@@ -54,7 +47,10 @@ public class TestBase {
                 "enableVideo", enableRecordVideo
         ));
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "https://" + userSelenoid + "@" + urlSelenoid;
+        Configuration.remote = "https://" +
+                System.getProperty("userSelenoid") +
+                "@" +
+                System.getProperty("urlSelenoid", "selenoid.autotests.cloud/wd/hub");
     }
 
     @BeforeEach
@@ -67,7 +63,7 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo(urlVideo);
+        Attach.addVideo(System.getProperty("urlVideo", "selenoid.autotests.cloud/video/"));
 
         Selenide.closeWebDriver();
     }
