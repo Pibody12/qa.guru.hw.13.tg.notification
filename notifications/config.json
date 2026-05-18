@@ -3,14 +3,14 @@
     "project": "Some project name",
     "environment": "qa.guru",
     "comment": "comment here @Timdrob",
-    "reportLink": "lin on Allure",
-    "language": "ru",
+    "reportLink": "https://jenkins.autotests.cloud/view/java_students/job/C40-drobotenko-hw-13-tg-notifications/allure",
+    "language": "en",
     "allureFolder": "allure-report",
     "enableChart": true
   },
   "telegram": {
     "token": "8603523781:AAEaX4ITPgeROsogmw7vFqB1ZtGjVsPcbzE",
-    "chat": "1003949864061",
+    "chat": "-1003949864061",
     "replyTo": ""
   }
 }
